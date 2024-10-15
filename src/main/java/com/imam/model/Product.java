@@ -8,108 +8,108 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Product {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	
-	@Column(length = 500)
-	private String title;
-	
-	@Column(length = 5000)
-	private String description;
-	
-	private String category;
 
-	private Double price;
-	
-	private int stock;
-	
-	private String image;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	private int discount;
+    @Column(length = 500)
+    private String title;
 
-	private boolean isActive;
+    @Column(length = 5000)
+    private String description;
 
-	private double discountPrice;
+    private String category;
 
-	public int getId() {
-		return id;
-	}
+    private Double price;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    private int stock;
 
-	public String getTitle() {
-		return title;
-	}
+    private String image;
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    private int discount;
 
-	public String getDescription() {
-		return description;
-	}
+    private boolean isActive;
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    private double discountPrice;
 
-	public Double getPrice() {
-		return price;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setPrice(Double price) {
-		this.price = price;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public int getStock() {
-		return stock;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setStock(int stock) {
-		this.stock = stock;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public String getImage() {
-		return image;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setImage(String image) {
-		this.image = image;
-	}
-	
-	public String getCategory() {
-		return category;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setCategory(String category) {
-		this.category = category;
-	}
+    public Double getPrice() {
+        return price;
+    }
 
-	public boolean getIsActive() {
-		return isActive;
-	}
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 
-	public void setIsActive(boolean active) {
-		isActive = active;
-	}
+    public int getStock() {
+        return stock;
+    }
 
-	public double getDiscountPrice() {
-		return discountPrice;
-	}
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
 
-	public void setDiscountPrice(double discountPrice) {
-		this.discountPrice = discountPrice;
-	}
+    public String getImage() {
+        return image;
+    }
 
-	public int getDiscount() {
-		return discount;
-	}
+    public void setImage(String image) {
+        this.image = image;
+    }
 
-	public void setDiscount(int discount) {
-		this.discount = discount;
-	}
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(boolean active) {
+        isActive = active;
+    }
+
+    public double getDiscountPrice() {
+        return discountPrice;
+    }
+
+    public void setDiscountPrice(double discountPrice) {
+        this.discountPrice = discountPrice;
+    }
+
+    public int getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(int discount) {
+        this.discount = discount;
+    }
 }

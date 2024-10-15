@@ -11,46 +11,46 @@ import lombok.Setter;
 
 @Entity
 public class Category {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	
-	private String name;
-	
-	private String imageName;
-	
-	private boolean isActive;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	public int getId() {
-		return id;
-	}
+    private String name;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    private String imageName;
 
-	public String getName() {
-		return name;
-	}
+    private boolean isActive;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getImageName() {
-		return imageName;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setImageName(String imageName) {
-		this.imageName = imageName;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public boolean getIsActive() {
-		return isActive;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setIsActive(boolean isActive) {
-		this.isActive = isActive;
-	}
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    public boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
+    }
 
 }
