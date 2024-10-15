@@ -9,10 +9,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
 @Entity
 public class Category {
 	@Id
@@ -56,6 +52,5 @@ public class Category {
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
-	
 
 }

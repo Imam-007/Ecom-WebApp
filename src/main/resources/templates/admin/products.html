@@ -14,12 +14,12 @@
 					<p class="fs-4">View Products</p>
 					<th:block th:if="${session.succMsg}">
 						<p class="text-success fw-bold">[[${session.succMsg}]]</p>
-						<th:block th:text="${@commnServiceImpl.removeSessionMessage()}"></th:block>
+						<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
 					</th:block>
 
 					<th:block th:if="${session.errorMsg}">
 						<p class="text-danger fw-bold">[[${session.errorMsg}]]</p>
-						<th:block th:text="${@commnServiceImpl.removeSessionMessage()}"></th:block>
+						<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
 					</th:block>
 				</div>
 				<div class="card-body">
@@ -30,7 +30,9 @@
 								<th scope="col">Image</th>
 								<th scope="col">Title</th>
 								<th scope="col">Category</th>
-								<th scope="col">Price</th>
+								<th scope="col">Original Price</th>
+								<th scope="col">Discount</th>
+								<th scope="col">Discount Price</th>
 								<th scope="col">Stock</th>
 								<th scope="col">Action</th>
 							</tr>
@@ -43,6 +45,8 @@
 								<td>[[${p.title}]]</td>
 								<td>[[${p.category}]]</td>
 								<td>[[${p.price}]]</td>
+								<td>[[${p.discount}]]<span>%</span></td>
+								<td>[[${p.discountPrice}]]</td>
 								<td>[[${p.stock}]]</td>
 								<td><a th:href="@{'/admin/editProduct/'+${p.id}}"
 									class="btn btn-sm btn-primary"><i

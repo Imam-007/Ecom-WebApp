@@ -16,12 +16,12 @@
 
 							<th:block th:if="${session.succMsg}">
 								<p class="text-success fw-bold">[[${session.succMsg}]]</p>
-								<th:block th:text="${@commnServiceImpl.removeSessionMessage()}"></th:block>
+								<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
 							</th:block>
 
 							<th:block th:if="${session.errorMsg}">
 								<p class="text-danger fw-bold">[[${session.errorMsg}]]</p>
-								<th:block th:text="${@commnServiceImpl.removeSessionMessage()}"></th:block>
+								<th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
 							</th:block>
 
 						</div>
@@ -52,6 +52,18 @@
 									<label>Enter Price</label> <input type="number" name="price"
 										th:value="${product.price}" class="form-control">
 								</div>
+
+								<div class="row">
+									<div class="mb-3 col">
+										<label>Discount</label> <input type="number" name="discount"
+																	   th:value="${product.discount}" class="form-control">
+									</div>
+									<div class="mb-3 col">
+										<label>Discount Price</label> <input type="number" readonly
+																			 th:value="${product.discountPrice}" class="form-control">
+									</div>
+								</div>
+
 								<div class="row">
 
 									<div class="mb-3 col">

@@ -27,6 +27,12 @@ public class Product {
 	
 	private String image;
 
+	private int discount;
+
+	private boolean isActive;
+
+	private double discountPrice;
+
 	public int getId() {
 		return id;
 	}
@@ -82,6 +88,28 @@ public class Product {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	
 
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean active) {
+		isActive = active;
+	}
+
+	public double getDiscountPrice() {
+		return discountPrice;
+	}
+
+	public void setDiscountPrice(double discountPrice) {
+		this.discountPrice = discountPrice;
+	}
+
+	public int getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(int discount) {
+		this.discount = discount;
+	}
 }
