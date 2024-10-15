@@ -61,12 +61,12 @@ public class AdminController {
 
 	@PostMapping("/saveCategory")
 	public String saveCategory(@ModelAttribute Category category, @RequestParam("file") MultipartFile file,
-			HttpSession session, @RequestParam("isActive") boolean isActive) throws IOException {
+			HttpSession session) throws IOException {
 
 		String imageName = file != null ? file.getOriginalFilename() : "default.jpg";
 		category.setImageName(imageName);
-		System.out.println(isActive);
-		category.setActive(isActive);
+		System.out.println(category.getIsActive());
+		category.setIsActive(category.getIsActive());
 
 		boolean existCategory = categoryService.existCategory(category.getName());
 
@@ -109,12 +109,12 @@ public class AdminController {
 
 	@PostMapping("/updateCategory")
 	public String updateCategory(@ModelAttribute Category category, @RequestParam("file") MultipartFile file,
-			HttpSession session, @RequestParam("isActive") boolean isActive) throws IOException {
+			HttpSession session) throws IOException {
 		Category oldCategory = categoryService.getCategoryById(category.getId());
 		String imageName = file.isEmpty() ? oldCategory.getImageName() : file.getOriginalFilename();
 		if (!ObjectUtils.isEmpty(oldCategory)) {
 			oldCategory.setName(category.getName());
-			oldCategory.setActive(isActive);
+			oldCategory.setIsActive(category.getIsActive());
 			oldCategory.setImageName(imageName);
 		}
 		Category UpdateCategory = categoryService.saveCategory(oldCategory);
@@ -142,6 +142,7 @@ public class AdminController {
 		product.setImage(imageName);
 		product.setDiscount(0);
 		product.setDiscountPrice(product.getPrice());
+		product.setIsActive(product.getIsActive());
 
 		Product saveProduct = productService.saveProduct(product);
 

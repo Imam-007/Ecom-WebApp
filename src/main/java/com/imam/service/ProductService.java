@@ -18,4 +18,6 @@ public interface ProductService {
 	
 	public Product updateProduct(Product product, MultipartFile image);
 
+	public List<Product> getAllActiveProducts();
+
 }

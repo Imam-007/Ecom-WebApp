@@ -65,6 +65,7 @@ public class ProductServiceImpl implements ProductService {
 		oldProduct.setPrice(product.getPrice());
 		oldProduct.setStock(product.getStock());
 		oldProduct.setImage(imageName);
+		oldProduct.setIsActive(product.getIsActive());
 
 		oldProduct.setDiscount(product.getDiscount());
 
@@ -90,6 +91,11 @@ public class ProductServiceImpl implements ProductService {
 			return product;
 		}
 		return null;
+	}
+
+	@Override
+	public List<Product> getAllActiveProducts() {
+		return productRepository.findByIsActiveTrue();
 	}
 
 }
