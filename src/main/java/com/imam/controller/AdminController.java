@@ -203,7 +203,6 @@ public class AdminController {
                 return "redirect:/admin/editProduct/" + product.getId();
             }
         }
-
         return "redirect:/admin/products";
     }
 
