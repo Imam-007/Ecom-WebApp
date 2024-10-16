@@ -40,7 +40,7 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/signin")
     public String login() {
         return "login";
     }
@@ -70,27 +70,34 @@ public class HomeController {
     }
 
     @PostMapping("/saveUser")
-    public String saveUser(@ModelAttribute UserDetails user, @RequestParam("img") MultipartFile file, HttpSession session) throws IOException {
+    public String saveUser(@ModelAttribute UserDetails userDetails, @RequestParam("img") MultipartFile file, HttpSession session) throws IOException {
 
         String imageName = file.isEmpty() ? "default.jpg" : file.getOriginalFilename();
-        user.setProfileImage(imageName);
-        UserDetails saveUser = userService.saveUser(user);
-        if (!ObjectUtils.isEmpty(saveUser)) {
+        userDetails.setProfileImage(imageName);
+        UserDetails saveUserDetails = userService.saveUser(userDetails);
+
+        if (!ObjectUtils.isEmpty(saveUserDetails)) {
             if (!file.isEmpty()) {
                 File saveFile = new ClassPathResource("static/images").getFile();
-                Path path = Paths.get(saveFile.getAbsolutePath() + File.separator + "profile_img" + File.separator
-                        + file.getOriginalFilename());
+                File profileImgDir = new File(saveFile, "profile_img");
 
+                // Ensure the directory exists or create it
+                if (!profileImgDir.exists()) {
+                    profileImgDir.mkdirs(); // Create directories if they don't exist
+                }
+
+                Path path = Paths.get(profileImgDir.getAbsolutePath() + File.separator + file.getOriginalFilename());
                 System.out.println("hello");
                 System.out.println(path);
+
                 Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
             }
-            session.setAttribute("successMsg", "User saved SuccessFully");
-            return "redirect:/login";
+            session.setAttribute("successMsg", "User saved Successfully");
+            return "login";
         } else {
             session.setAttribute("errorMsg", "Something went wrong on server");
         }
-        return "redirect:/register";
+        return "register";
     }
 
 }

@@ -30,6 +30,8 @@ public class UserDetails {
 
     private String profileImage;
 
+    private String role;
+
     public int getId() {
         return id;
     }
@@ -108,5 +110,13 @@ public class UserDetails {
 
     public void setProfileImage(String profileImage) {
         this.profileImage = profileImage;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
