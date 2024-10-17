@@ -4,8 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.security.Principal;
 import java.util.List;
 
+import com.imam.model.UserDetails;
+import com.imam.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
@@ -38,6 +41,22 @@ public class AdminController {
 
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private UserService userService;
+
+    @ModelAttribute
+    public void getUserDetails(Principal principal, Model model){
+
+        if(principal!=null){
+            String email=principal.getName();
+            UserDetails userDetails=userService.getUserByEmail(email);
+            model.addAttribute("user",userDetails);
+        }
+
+        List<Category> allActiveCategory=categoryService.getAllActiveCategory();
+        model.addAttribute("categories",allActiveCategory);
+    }
 
     @GetMapping("/")
     public String index() {
