@@ -49,6 +49,6 @@ public class CustomUser implements org.springframework.security.core.userdetails
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return userDetails.getIsEnable();
     }
 }

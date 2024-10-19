@@ -20,6 +20,7 @@ public class UserServiceImpl implements UserService {
     public UserDetails saveUser(UserDetails userDetails) {
 
         userDetails.setRole("ROLE_USER");
+        userDetails.setIsEnable(true);
         String encodedPassword=passwordEncoder.encode(userDetails.getPassword());
         userDetails.setPassword(encodedPassword);
         return userRepository.save(userDetails);

@@ -32,6 +32,8 @@ public class UserDetails {
 
     private String role;
 
+    private boolean isEnable;
+
     public int getId() {
         return id;
     }
@@ -118,5 +120,13 @@ public class UserDetails {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public boolean getIsEnable() {
+        return isEnable;
+    }
+
+    public void setIsEnable(boolean enable) {
+        isEnable = enable;
     }
 }

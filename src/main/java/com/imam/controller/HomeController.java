@@ -95,18 +95,15 @@ public class HomeController {
                 File saveFile = new ClassPathResource("static/images").getFile();
                 File profileImgDir = new File(saveFile, "profile_img");
 
-                // Ensure the directory exists or create it
                 if (!profileImgDir.exists()) {
-                    profileImgDir.mkdirs(); // Create directories if they don't exist
+                    profileImgDir.mkdirs();
                 }
 
                 Path path = Paths.get(profileImgDir.getAbsolutePath() + File.separator + file.getOriginalFilename());
                 System.out.println("hello");
                 System.out.println(path);
-
                 Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
             }
-            session.setAttribute("successMsg", "User saved Successfully");
             return "login";
         } else {
             session.setAttribute("errorMsg", "Something went wrong on server");
